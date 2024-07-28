@@ -1,0 +1,14 @@
+.footer{
+    background-color: #ADD8E6;
+}
+
+/*text of the footer*/
+#footer-text{
+    color: #FFE5B4;
+    font-size: calc(1em + .5vw); 
+    text-align: center;
+    padding: 1rem 0;
+    margin: 0;
+    border: 0;
+}
+

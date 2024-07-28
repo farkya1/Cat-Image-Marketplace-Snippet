@@ -1,0 +1,30 @@
+{% extends 'shared/layout.html' %}
+
+
+
+{% block maincontent %}
+<br><br>
+
+<div class="main-full-text">
+    <h1 id="fun-full-fact-header">Register</h1>
+</div>
+
+<!-- register box -->
+<form id="login-form" onsubmit="signupUsers(event)">
+    
+    <!-- register email -->
+    <input type="email" class="login-form-input login-form-height" name="email" placeholder="Your Email" required>
+    
+    <!-- register password -->
+    <input type="text" class="login-form-input login-form-height" name="password" placeholder="Your Password" required>
+    
+    <!-- submit -->
+    <input id="login-form-submit" class="login-form-height" value="Submit" type="Submit" name="submit">
+
+</form>
+
+<p id="email-error">Email already used</p>
+
+
+
+{% endblock %}

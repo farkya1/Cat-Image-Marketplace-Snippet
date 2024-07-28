@@ -1,0 +1,77 @@
+
+/*form of the login process*/
+#login-form{
+    display: block;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+    width: 250px;
+
+    background-color: #000000;
+    padding: 1rem;
+
+    margin-bottom: 2rem;
+    
+}
+
+
+/*The text inputs of the form*/
+.login-form-input{
+    margin-top: .3rem;
+    margin-bottom: .3rem;
+    width: 100%;
+}
+
+.login-form-height{
+    height: 2rem;
+}
+
+/*the form submit button*/
+#login-form-submit{
+    background-color: #5d229c;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: large;
+    width: 100%;
+}
+
+.login-text{
+    color: #ffffff;
+}
+
+/*the number of attempts*/
+#login-attempts-line{
+    display: flex;
+    flex-direction: row;
+}
+
+#email-error{
+    text-align: center;
+    display: none;
+    
+}
+
+#sign-up-contain{
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 2rem;
+    margin-top: -1rem;
+    
+}
+
+/*Gets rid of all the link coloring activity besides hover*/
+#sign-up:link, #sign-up:visited,#sign-up:active{
+    color: #000000;
+    text-decoration: none;
+}
+
+/*Changes the color on hover and lowers opacity*/
+#sign-up:hover{
+    color: #0591AF;
+    opacity: .75;
+}
+
+/*used for signup*/
+#sign-up{
+    text-decoration: none;
+}

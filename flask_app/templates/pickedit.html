@@ -1,0 +1,25 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+
+      <!-- Pick which job to edit -->
+      <p class="resume-title">Which job would you like to edit</p>
+      <form method="POST" action="/editresume" class="resume-pick-job">
+      <!-- Runs through each institution --> 
+      {% for inst_id, inst in resume_data.items() %}
+
+        <!-- Each institution --> 
+        <input type="radio" name="option" value="{{ inst['name']}}" class="radio-input" required>
+        <label for="{{ loop.index }}" class="radio-label">{{ inst['name']}}</label><br>
+
+
+      {% endfor %}
+      <input type="submit" value="Submit" class="resume-submit">
+      </form>
+
+
+
+
+{% endblock %}
+
+

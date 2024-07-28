@@ -1,0 +1,24 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+
+    <div class="nfts-flex">
+
+    <!--Runs through each nft that has been made on the site-->
+    {% for image in image_data %}
+        <div class="nfts-flex-col">
+            <img src="../static/marketplace/images/{{image['image_name']}}" width="225" height="240"alt="JPG Image" loading="lazy">
+
+            <!--Allows the admin to select a nft to see the history-->
+            <form action="/viewblockchain" method="post">
+                <input type="hidden" value="{{image['image_id']}}" name="imageID"/>
+                <input class="select-buttons" type="submit" value="View" name="" />
+            </form>
+            
+        </div>
+
+    {% endfor %}
+</div>
+    
+
+{% endblock %}

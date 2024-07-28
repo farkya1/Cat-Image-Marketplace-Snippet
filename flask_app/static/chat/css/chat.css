@@ -1,0 +1,31 @@
+
+
+#chat {
+    width: 60%;
+    height: 350px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+    overflow-y:auto;
+    margin:auto;
+  }
+
+/*the input of the chat */
+  #message-sender{
+      display: block;
+      margin: auto;
+      height: 20px;
+      width: 30%;
+  }
+  
+  @media screen and (max-width:850px) {
+  
+  #chat{
+      width: 95%;
+  }
+  
+  }

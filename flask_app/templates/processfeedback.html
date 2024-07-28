@@ -1,0 +1,17 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+    <h3 id="main-feedback-title">Thanks for your feedback - here's what others had to say</h3>
+    <div id="main-feedback-push">
+
+    <!-- Runs thorugh each feedback -->
+    {% for feedback_id, feedback in feedback_data.items() %}
+
+        <!-- Prints the name and comment -->
+        <p id="main-feedback-line">{{feedback["name"]~": "~feedback["feedback"]}}</p>
+
+
+    {% endfor %}
+    </div>
+
+{% endblock %}

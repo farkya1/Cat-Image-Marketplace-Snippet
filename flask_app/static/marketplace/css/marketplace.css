@@ -1,0 +1,119 @@
+/*used for multiple link options*/
+#marketplace-selector{
+    display: flex;
+    text-align: center;
+    font-size: larger;
+    margin: auto;
+    justify-content: center;
+    gap: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/*used for titles*/
+.nft-title{
+    margin: auto;
+    text-align: center;
+}
+
+/*used for nft creation input*/
+#nft-input-creation{
+    margin: auto;
+    display: flex;
+    gap: .5rem;
+    justify-content: center;
+    flex-direction: row;
+}
+
+/*used for nft flexing*/
+.nfts-flex{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap:1rem;
+}
+
+/*used for nft flexing with column direction*/
+.nfts-flex-col{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: .2rem;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/*used for nft flexing with column direction for nft buy page*/
+#nfts-flex-col-buy{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*used for submission buttons*/
+.submission-buttons{
+    padding-top: 1rem;
+    display: flex;
+    text-align: center;
+    font-size: larger;
+    justify-content: center;
+    gap: .2rem;
+    width: 10%;
+    align-content: center;
+    margin: auto;
+}
+
+/*used for selections*/
+.select-buttons{
+    background-color: #9e3434;
+    color: #ffffff;
+    margin: auto;
+    justify-content: center;
+    font-size: large;
+
+}
+
+/*used for admin items*/
+#admin-items{
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    padding-top: 2rem;
+}
+
+/*used for nft links*/
+.marketplace-link{
+    padding-top: 2rem;
+}
+
+
+/*Gets rid of all the link coloring activity besides hover*/
+.marketplace-link:link, .marketplace-link:visited,.marketplace-link:active{
+    color: #000000;
+    text-decoration: none;
+}
+
+/*Changes the color on hover and lowers opacity*/
+.marketplace-link:hover{
+    color: #0591AF;
+    opacity: .75;
+}
+
+/*used for marketplace titles*/
+.marketplace-title{
+    text-align: center;
+    margin: auto;
+}
+
+/*used for link containing*/
+.marketplace-link-contain{
+    margin: auto;
+    text-align: center;
+}

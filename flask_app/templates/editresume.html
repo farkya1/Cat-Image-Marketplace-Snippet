@@ -1,0 +1,53 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+
+      <p class="resume-title">Fill in to update</p>
+
+      <!-- pulls the information into a form from a current job in the database -->  
+      <form id="resume-edit" method="POST" action="/editdone">
+      <!-- Runs through the institution --> 
+      {% for inst_id, inst in resume_data.items() %}
+        <input type="text" name="institutions | name | {{ inst['name']}} | {{inst['inst_id']}}" placeholder="{{ inst['name']}}">
+        <input type="text" name="institutions | city | {{ inst['city']}} | {{inst['inst_id']}}" placeholder="{{ inst['city']}}">
+        <input type="text" name="institutions | state | {{ inst['state']}} | {{inst['inst_id']}}" placeholder="{{ inst['state']}}">
+      
+
+        {% if inst['positions'] != {} %}
+          <!-- Runs through each position of the institution --> 
+          {% for pos_id, pos in inst['positions'].items() %}
+
+          <input type="text" name="positions | title | {{ pos['title']}} | {{pos['inst_id']}}" placeholder="{{ pos['title']}}">
+          <input type="text" name="positions | start_date | {{ pos['start_date']}} | {{pos['inst_id']}}" placeholder="{{ pos['start_date']}}">
+          <input type="text" name="positions | end_date | {{ pos['end_date']}}| {{pos['inst_id']}}" placeholder="{{ pos['end_date']}}">
+          <input type="text" name="positions | responsibilities | {{ pos['responsibilities']}} | {{pos['inst_id']}}" placeholder="{{ pos['responsibilities']}}">
+
+            <!-- Runs through each experience of the position --> 
+            {% for exp_id, exp in pos['experiences'].items() %}
+            
+              <!-- Checks to see if there is a hyperlink -->
+              <input type="text" name="experiences | name | {{ exp['name']}}" placeholder="{{ exp['name']}}">
+              <input type="text" name="experiences | description | {{ exp['description']}}" placeholder="{{ exp['description']}}">
+              
+              
+              
+              <!-- Runs through each skill of the experience --> 
+              {% for skill_id, skill in exp['skills'].items() %}
+
+              <input type="text" name="skills | name | {{ skill['name']}} " placeholder="{{ skill['name']}}">
+                
+                
+              {% endfor %}
+            {% endfor %}
+          {% endfor %}
+        {% endif %}
+
+      
+      {% endfor %}
+      <input type="submit" value="Submit" class="resume-submit">
+    </form>
+
+
+{% endblock %}
+
+

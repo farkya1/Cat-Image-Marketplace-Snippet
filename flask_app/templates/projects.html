@@ -1,0 +1,26 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+    <!--Projects Title-->
+    <div class="main-full-text">
+        <h1 id="fun-full-fact-header">Below is a list of projects I worked on in CSE 477:</h1>
+        <p id="fun-full-text-body">Click an image, or hyperlink in the description to learn more.</p>
+    </div>
+
+    <!--Responsive flex that is a link to the piano page-->
+    <div class="main-flex">
+        
+        <a class="main-halfer"  href="piano"><img id="main-half-image" src="../static/main/images/piano.jpg" alt="Piano Link" loading="lazy"></a>
+        <p class="main-halfer" id="main-half-text">As part of my first Homework assignment in CSE477. I developed an interactive piano build in pure HTML, CSS, and Javascript. This tool (in addition to my webpage) highlights my ability to build beautiful and mobile-friendly front-end applications.<a href="piano">Click here to see and play!</a></p>
+        
+    </div>
+    <br>
+    <!--Responsive flex that is a link to the nft marketplace-->
+    <div class="main-flex">
+        <p class="main-halfer" id="main-half-text">As part of my Final Exam in CSE477. I developed a cat NFT marketplace. The front-end I used HTML, CSS, and Javascript and for the back-end flask and mysql. This tool (in addition to my webpage) highlights my ability to build front-end and back-end applications.<a href="marketplaceenter">Click here to see and play!</a></p>
+        <a class="main-halfer"  href="marketplaceenter"><img id="main-half-image" src="../static/marketplace/images/awe.jpg" alt="Piano Link" loading="lazy"></a>
+        
+        
+    </div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+    <!--Responsive Flex-->
+    <div class="main-flex">
+        <img src="../static/main/images/self-portrait.jpg" class="main-halfer" id="main-half-image" alt="Self Portrait" loading="lazy">
+        <p class="main-halfer" id="main-half-text">Adam Farkas is a Junior at Michigan State University and majoring in computer science. He is in the honors college and is interested in software and website development and is interning at Ford in the Summer. Some other hobbies he enjoys are going to the gym, reading all kinds of books, and watching Netflix.</p>
+        </div>
+
+
+        <!--Fun Fact-->
+        <div class="main-full-text">
+        <h1 id="fun-full-text-header">A fun fact about me:</h1>
+        <p id="fun-full-text-body">A fun fact about me: <b>{{fun_fact}}</b> </p>
+    </div>
+
+
+{% endblock %}

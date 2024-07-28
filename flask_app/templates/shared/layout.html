@@ -1,0 +1,160 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam Farkas' Personal Website</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='../static/main/images/favicon.ico') }}">
+
+
+    {% block extracss %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/main/css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/main/css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/piano/css/piano.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/main/css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/main/css/body.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/main/css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/main/css/form.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/login/css/login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/resume/css/resume.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/chat/css/chat.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/marketplace/css/marketplace.css') }}">
+    {% endblock %}
+
+    {% block extrajs %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+    <script src="https://cdn.socket.io/3.1.1/socket.io.min.js"></script>
+
+    <script src="{{ url_for('static', filename='../static/login/js/login.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='../static/login/js/headerWelcome.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='main/js/form.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='../static/piano/js/piano.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='../static/resume/js/resume.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='../static/chat/js/chat.js') }}" defer></script>
+    {% endblock %}
+  </head>
+  <body id="body-full">
+
+    <!-- The header  -->  
+    <header>
+      <div class="header">
+        <img id="header-image" src="../static/main/images/banner.jpg" 
+        alt="star background">
+      </div>
+    </header>
+    <nav>
+      <div class="navbar">
+
+        <!--Desktop Menu-->
+
+        <!-- prints the email if the session has one -->  
+        {% if session['email'] %}
+        
+        <div class="navbar-component" id="large-flex"><p id="welcome-email"></p></div>
+        
+        {% else %}
+        <div class="navbar-component" id="large-flex">CSE477 - Final Exam</div>
+        {% endif %}
+
+        <div class="navbar-component navbar-notmobile">
+          <a class="navbar-link" href="home">Home</a>
+        </div>
+
+        <div class="navbar-component navbar-notmobile">
+          <a class="navbar-link" href="projects">Projects</a>
+        </div>
+
+        <div class="navbar-component navbar-notmobile">
+          <a class="navbar-link" href="resume">Resume</a>
+        </div>
+
+        <div class="navbar-component navbar-notmobile">
+          <a class="navbar-link" href="chat">Chat</a>
+        </div>
+        
+        {% if session['email'] %}
+        <div class="navbar-component navbar-notmobile logout-link">
+          <a class="navbar-link" href="logout">Logout</a>
+        </div>
+
+        {% else %}
+        <div class="navbar-component navbar-notmobile login-link">
+          <a class="navbar-link" href="login">Login</a>
+        </div>
+        {% endif %}
+        
+
+        <!--LinkedIn photo and link-->
+        <div class="navbar-component navbar-notmobile">
+          <a href="https://www.linkedin.com/in/adam-farkas-868862255/">
+            <img class="navbar-photo" src="../static/main/images/social-linkedin.png" alt="LinkedIn" loading="lazy">
+          </a>
+        </div>  
+
+        <!--Mobile Menu Dropdown-->
+        <div class="navbar-component navbar-mobile">
+
+          <a id="navbar-mobile-select" href="#">
+            <img class="navbar-photo" src="../static/main/images/menu-bar.png" alt="Menu Bar" loading="lazy">
+          </a>
+          <div>
+            <ul id="navbar-dropdown">
+              <li><a class="navbar-link " href="/home">Home</a></li>
+              <li><a class="navbar-link" href="projects">Projects</a></li>
+              <li><a class="navbar-link" href="/resume">Resume</a></li>
+              <li><a class="navbar-link" href="/chat">Chat</a></li>
+              {% if session['email'] %}
+              <li><a class="navbar-link logout-link" href="/logout">Logout</a></li>
+              {% else %}
+              <li><a class="navbar-link login-link" href="/login">Login</a></li>
+              {%endif%}
+              
+              <li><a class="navbar-link" href="https://www.linkedin.com/in/adam-farkas-868862255/">Linkedin</a></li>
+            </ul>
+          </div>
+        </div>    
+      </div>
+    </nav>
+
+    <!-- The main content  -->
+    <main>
+      {% block maincontent %}{% endblock %}
+    </main>
+
+    <!-- Feedback button -->
+    <p id="form-button">Feedback</p>
+
+    <!-- Feedback submission box -->
+    <form id="form" method="POST" action="/processfeedback">
+      <input type="text" class="form-input form-height" name="name" placeholder="Your Name" required>
+    
+      <input type="email" class="form-input form-height" name="email" placeholder="Your Email" required>
+    
+      <input class="form-input form-height" name="feedback" placeholder="Your feedback Here" required>
+    
+      <input id="form-submit" class="form-height" value="Send" type="Submit" name="submit">
+    </form>
+
+    <!-- The footer of the file -->
+    <footer>
+      <div class="footer">
+        <p id="footer-text">© Adam Farkas</p>
+      </div>
+    </footer>
+
+    
+  
+  </body>
+
+</html>
+
+
+
+
+
+
+
+

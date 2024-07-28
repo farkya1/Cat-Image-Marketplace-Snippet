@@ -1,0 +1,37 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+
+<div id="admin-items">
+    
+    <h3 class="marketplace-title"><a class="marketplace-link" href="blockchainactivity">View Another NFT</a></h3>
+
+    <img src="../static/marketplace/images/{{chain_data['chain'][-1]['transactions']['image_name']}}" width="240" height="255"alt="{{chain_data['chain'][-1]['transactions']['image_name']}}" loading="lazy">
+
+    <!--Gets the current owner from the last transaction-->
+    <p>Current Owner is {{chain_data['chain'][-1]['transactions']['currentOwner']}}</p>
+    <br>
+        <!--Runs through each transation of the nft-->
+        {% for block in chain_data['chain'] %}
+            <div>
+
+                
+                {% if "starting owner" in block["transactions"]%}
+                <!--Runs if this is the first transaction-->
+                <p>Created By: {{block["transactions"]["starting owner"]}} at {{block["time_stamp"]}}</p>
+
+
+                {% else %}
+                    <p>Sold for {{block["transactions"]["cost"]}} tokens at {{block["time_stamp"]}}</p>
+                    <p>Bought by {{block["transactions"]["buyerEmail"]}} from {{block["transactions"]["sellerEmail"]}}</p>
+
+                {% endif %}
+                <br>
+                
+                
+            </div>
+
+        {% endfor %}
+</div>    
+
+{% endblock %}

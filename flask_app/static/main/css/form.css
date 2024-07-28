@@ -1,0 +1,52 @@
+#form{
+    display: none;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+    position: fixed;
+    width: 250px;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000000;
+    padding: 1rem;
+    
+}
+
+
+/*The text inputs of the form*/
+.form-input{
+    margin-top: .3rem;
+    margin-bottom: .3rem;
+}
+
+.form-height{
+    height: 2rem;
+}
+
+/*the form submit button*/
+#form-submit{
+    background-color: #5d229c;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: large;
+}
+
+/* The on and off form button*/
+#form-button{
+    background-color: #000000;
+    color: #ffffff;
+    margin: auto;
+    position: fixed;
+    width: 6rem;
+    height: 1.5rem;
+    font-size: larger;
+    text-align: center;
+    top: 50%;
+    left: 100%;
+    
+    transform: translate(-3.5rem, 0) rotate(-90deg);
+    
+    
+}

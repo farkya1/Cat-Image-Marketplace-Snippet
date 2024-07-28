@@ -1,0 +1,67 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+
+      {% if session["owner"] %}
+      <div id="edit-resume-container"><a id="edit-resume" href="/resumeoptions">Make Changes</a></div>
+      {% endif %}
+      <hr class="main-resume-width main-resume-break">
+      <!-- Runs through each institution --> 
+      {% for inst_id, inst in resume_data.items() %}
+      
+      
+      <div class="main-resume-flex">
+        <h1 id="main-bold-title">{{ inst['name']}}</h1>
+        <p>{{ inst['city'] ~ ', ' ~ inst['state'] }}</p>
+      </div>
+        {% if inst['positions'] != {} %}
+          <!-- Runs through each position of the institution --> 
+          {% for pos_id, pos in inst['positions'].items() %}
+          
+            <div class="main-resume-flex" >
+              <p id="main-resume-name">{{ pos['title']}}</p>
+              {% if pos['end_date']%}
+                <p>{{ pos['start_date'] ~ ' - ' ~ pos['end_date']}}</p>
+              {% else %}
+              {% if pos['start_date']%}
+              <p>{{ pos['start_date'] ~ ' - ' }}</p>
+              {% endif %}
+              {% endif %}
+            </div>
+            <p class="main-resume-width" id="main-resume-respon">{{ pos['responsibilities']}}</p>
+            
+            <!-- Runs through each experience of the position --> 
+            {% for exp_id, exp in pos['experiences'].items() %}
+            
+              <!-- Checks to see if there is a hyperlink -->
+              {% if exp['herperlink'] %}
+                <p class="main-resume-width">{{ exp['hyperlink']}} </p>
+              {% else %}
+                <p class="main-resume-width" >{{ exp['name']}} </p>
+              {% endif %}
+              <p class="main-resume-width" id="main-resume-descrip">{{ exp['description']}} </p>
+
+              <!-- Initializes a skills array with the starting statment -->
+              {% set final_skills = ['Skills used:'] %}
+
+              <!-- Runs through each skill of the experience --> 
+              {% for skill_id, skill in exp['skills'].items() %}
+              
+                {% set _ =  final_skills.append( skill["name"] ) %}
+                
+              {% endfor %}
+              <!-- Prints the skills if there is at least on skill -->
+              {% if final_skills|length > 1%}
+                <p id="main-resume-skills" class="main-resume-width">{{ final_skills|join(" ") }}</p>
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+        {% endif %}
+
+      <hr class="main-resume-width main-resume-break">
+      {% endfor %}
+
+
+{% endblock %}
+
+
