@@ -1,0 +1,38 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+
+
+    <div class="nft-title"><a class="marketplace-link" href="/nftsell">Go To Your NFTS</a></div>
+
+    <!--The number of tokens available to buy-->
+    <div class="nft-title"><h1>You have {{image_data["tokens"]}} tokens</h1></div>
+
+    <div class="nfts-flex">
+
+    <!--Runs through each nft that is available to buy-->
+    {% if image_data["images"]|length != 0 %}
+        {% for image in image_data["images"] %}
+            <div id="nfts-flex-col-buy">
+                <img src="../static/marketplace/images/{{image['image_name']}}" width="225" height="240"alt="JPG Image" loading="lazy">
+                <p>{{image['description']}}</p>
+                <p>{{image['tokens']}} tokens</p>
+                
+                <form action="/nftbought" method="post">
+                    <input type="hidden" value="{{image['image_id']}}" name="image"/>
+                    <input class="select-buttons" type="submit" value="Buy" name="" />
+                </form>
+                
+            </div>
+
+        {% endfor %}
+
+    {% else %}
+    <!--Runs if no nfts are available to buy-->
+    <div class="nft-title"><h1>There are no NFTS for sale</h1></div>
+
+    {% endif %}
+    </div>
+    
+
+{% endblock %}
