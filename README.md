@@ -9,3 +9,5 @@ The project utilizes Python for its backend, featuring a MySQL database to manag
 
 
 ## App Demo
+
+![AppDemo](workingCats.gif)
