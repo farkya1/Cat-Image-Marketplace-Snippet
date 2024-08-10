@@ -15,4 +15,3 @@ The project utilizes Python for its backend, featuring a MySQL database to manag
 
 ## Cat Image Blockchain Demo
 
-![AppDemo](workingAdmin.gif)
