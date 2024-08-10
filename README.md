@@ -8,6 +8,6 @@ The project utilizes Python for its backend, featuring a MySQL database to manag
    
 
 
-## Cat Image Martkeplace Demo
+## Cat Image Marketplace Demo
 
 ![AppDemo](workingCats.gif)
